@@ -6,7 +6,7 @@ import { useEffect } from 'react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import Swiper from 'swiper';
-import ImageSlider from '../imageSlider/ImageSlider';
+
 import SwiperContainer from '../imageSlider/SliderContainer';
 function Popular() {
   
