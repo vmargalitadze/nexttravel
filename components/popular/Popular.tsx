@@ -17,7 +17,7 @@ function Popular() {
     <div className="container ">
     <div className="row arrow">
             <div className="col-auto">
-              <h2 data-aos="fade-up" className="text_header text-30 md:text-24">პოპულარუტული მიმართულებები</h2>
+              <h2 data-aos="fade-up" className="text_header text-30 md:text-24">ახალი ტურები</h2>
             </div>
             <Link className="buttonArrow all col-auto d-flex items-center" href="/all">
               <span>ყველა</span><GoArrowUpRight />

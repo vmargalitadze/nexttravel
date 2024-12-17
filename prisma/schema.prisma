@@ -1,0 +1,86 @@
+
+datasource db {
+  provider  = "postgresql"
+  url  	    = env("DATABASE_URL")
+
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+
+model User {
+  id           String     @id @default(uuid())
+ 
+ name     String @unique
+  email    String @unique
+  password String 
+ 
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+  admin        Boolean  @default(false)
+
+
+  reviews      Review[]
+  bookings     Booking[]
+  tours        Tour[]     @relation("CreatedTours")
+}
+
+model Tour {
+  id             String     @id @default(uuid())
+  title          String
+  description    String
+  image          String
+  price          Int
+  duration       Int        
+  maxGuests      Int
+  category       String
+  startDate      String
+  endDate        String
+  location       String
+  createdAt      DateTime   @default(now())
+  updatedAt      DateTime   @updatedAt
+
+
+  createdBy      User    @relation("CreatedTours", fields: [createdById], references: [id], onDelete: Cascade)
+  createdById    String
+
+  reviews        Review[]
+  bookings       Booking[]
+}
+
+
+
+model Review {
+  id         String   @id @default(uuid())
+  rating     Int       // Rating between 1-5
+  comment    String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  // Relationships
+  profile    User  @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  profileId  String
+
+  tour       Tour     @relation(fields: [tourId], references: [id], onDelete: Cascade)
+  tourId     String
+}
+
+model Booking {
+  id             String   @id @default(uuid())
+  totalGuests    Int
+  totalPrice     Int
+
+  paymentStatus  Boolean  @default(false)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+
+  profile        User  @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  profileId      String
+
+  tour           Tour     @relation(fields: [tourId], references: [id], onDelete: Cascade)
+  tourId         String
+}
+

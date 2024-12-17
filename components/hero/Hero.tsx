@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import React from 'react'
+import { GoArrowUpRight } from 'react-icons/go'
 
 function Hero() {
   return (
@@ -11,7 +12,10 @@ function Hero() {
                 <div className="col-lg-8 heroItems col-md-10">
                     <h1 className="hero-title">იმოგზაურეთ <br />ჩვენთან ერთად</h1>
                     
-                    <Link href="/all" className="login-btn">შემოგვიერთდი</Link>
+                    <Link href="/register" className=" join-btn w d-inline-flex align-items-center">
+                    დარეგისტრირდი
+                    <GoArrowUpRight className="ms-2 arrow" />
+                </Link>
                     
                   
                 </div>

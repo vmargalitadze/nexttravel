@@ -18,10 +18,20 @@ export default function RootLayout({
     <html lang="en">
 
       <body className={inter.className}>
+      <NextAuthProvider> 
+
       <Header />
-        {children}</body>
+        {children}
+        
+      <Footer />
+
+      </NextAuthProvider>
+        </body>
+
     </html>
   );
 }
 import  "bootstrap/dist/css/bootstrap.min.css"
-import Header from "@/components/header/Header";
+import Header from "@/components/header/Header";import Footer from "@/components/footer/Footer";
+import { NextAuthProvider } from "@/providers/NextAuthProvider";
+

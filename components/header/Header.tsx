@@ -35,7 +35,7 @@ const Header = () => {
 />
         </div>
         <div className="menu" onClick={toggleMenu}>
-          <h4>Menu</h4>
+          <h4>მთავარი</h4>
         </div>
       </div>
       <nav className={navBlack ? "black" : ""}>
@@ -50,20 +50,18 @@ const Header = () => {
         </div>
         <ul className={menuActive ? "active" : ""}>
           <li>
-            <a href="#">Home</a>
+            <a href="./">მთავარი</a>
           </li>
           <li>
-            <a href="#">About us</a>
+            <a href="#">ტურები</a>
           </li>
           <li>
-            <a href="#">Portfolio</a>
+            <a href="#">ჩვენ შესახებ</a>
           </li>
           <li>
-            <a href="#">Services</a>
+            <a href="./register">რეგისტრაცია</a>
           </li>
-          <li>
-            <a href="#">Contact Us</a>
-          </li>
+          
         </ul>
       </nav>
     
