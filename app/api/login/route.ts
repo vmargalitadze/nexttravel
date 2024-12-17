@@ -9,7 +9,7 @@ export async function POST(request: Request) {
     const { message, token } = await loginUser(formData);
 
     // Set the JWT token in an HTTP-only cookie
-    const res = NextResponse.redirect('http://localhost:3000/');
+    const res = NextResponse.redirect('https://nexttravel2.vercel.app/');
     res.headers.set(
       'Set-Cookie',
       cookie.serialize('token', token, {
